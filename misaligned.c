@@ -4,6 +4,10 @@
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
+    FormatColourMap(majorColor,minorColor);
+ }
+int FormatColourMap(majorColor,minorColor)
+{
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
@@ -12,7 +16,7 @@ int printColorMap() {
     }
     return i * j;
 }
-
+    
 int main() {
     int result = printColorMap();
     assert(result == 25);
