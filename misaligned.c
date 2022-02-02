@@ -2,7 +2,7 @@
 #include <assert.h>
 
 int Format_Colour(const char**,const char**);
-void Print_Colour(int,int,int,const char** ,const char** );
+void Print_Colour(int,const char* ,const char* );
 int PairNumber;
 
 int printColorMap() {
@@ -17,15 +17,15 @@ int Format_Colour(const char** majorColor,const char** minorColor)
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
         PairNumber= i * 5 + j;
-        Print_Colour(PairNumber,i,j,majorColor,minorColor);
+        Print_Colour(PairNumber,majorColor[i],minorColor[j]);
         }
     }
     return i * j;
 }
 
-void Print_Colour(int PairNumber,int i,int j,const char** majorColor,const char** minorColor)
+void Print_Colour(int PairNumber,const char* majorColor,const char* minorColor)
 {
-    printf("%d | %s | %s\n",PairNumber, majorColor[i], minorColor[i]);
+    printf("%d | %s | %s\n",PairNumber, majorColor, minorColor);
 } 
 
 int main() {
