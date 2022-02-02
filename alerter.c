@@ -81,7 +81,7 @@ int main() {
     alertInCelcius(200,Celsius_cal,networkAlert_call);
     assert(alertFailureCount==3);
     printf("%d alerts failed.\n", alertFailureCount);
-    printf("Production code test");
+    //Production code
     int (*networkAlert_Prod)(float)=networkAlert;
     alertInCelcius(200,Celsius_cal,networkAlert_Prod);
     assert(alertFailureCount==0);
