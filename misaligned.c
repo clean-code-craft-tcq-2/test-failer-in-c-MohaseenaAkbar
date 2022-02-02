@@ -29,7 +29,7 @@ int FormatColourStub(const char** majorColor,const char** minorColor,void (*Prin
     int i = 0, j = 0,Test_Var=1;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-        PairNumber= i * 5 + j ;
+        PairNumber= i * 5 + j+1 ;
         if(PairNumber==Test_Var)
         {
             (*Print_Colour_Test)(PairNumber,majorColor[i],minorColor[j]);
