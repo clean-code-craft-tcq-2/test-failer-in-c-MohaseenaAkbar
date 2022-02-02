@@ -54,7 +54,7 @@ int main() {
     assert(result == 25);
     assert(PairNumber==25);
     int (*Format_ColourStub)(const char**,const char**,void (*p)(int,const char*,const char*))=FormatColourStub;
-    int result = printColorMap(Format_ColourStub,Print_Colour_Test);
+    result = printColorMap(Format_ColourStub,Print_Colour_Test);
     assert(result == 26);
     printf("All is well (maybe!)\n");
     return 0;
