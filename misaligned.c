@@ -1,64 +1,37 @@
 #include <stdio.h>
 #include <assert.h>
 
-int alertFailureCount = 0;
-void TempertureDisplay(float celcius);
-int TemperatureCheck(float celcius);
+int Format_Colour(const char**,const char**);
+void Print_Colour(int,const char* ,const char* );
+int PairNumber;
 
-int networkAlertStub(float celcius) {
-    TempertureDisplay(celcius);
-    int Temperature_Status =TemperatureCheck(celcius);
-    return Temperature_Status;
-}
-int TemperatureCheck(float celcius)
+int printColorMap() {
+    const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
+    const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
+    int ColorMapArray_size = Format_Colour(majorColor,minorColor);
+    return ColorMapArray_size;
+ }
+int Format_Colour(const char** majorColor,const char** minorColor)
 {
-    // Return 200 for ok
-    // Return 500 for not-ok
-    // stub always succeeds and returns 200
-    if(celcius<=200)
-        return 200;
-    else
-        return 500;
-}
-void TempertureDisplay(float celcius)
-{
-   printf("ALERT: Temperature is %.1f celcius.\n", celcius);
-}
-    
-
-float FarenheitToCelsius(float farenheit)
-{
-     float celcius = (farenheit - 32) * 5 / 9;
-     return celcius;
-}
-
-void FailureCount()
-{
-    alertFailureCount += 1;
-}
-void alertInCelcius(float farenheit,float (*Celsius_calc)(float),int (*networkAlert_call)(float)) {
-    int celcius=(*Celsius_calc)(farenheit);
-    int returnCode = (*networkAlert_call)(celcius);
-    if (returnCode != 200) {
-        // non-ok response is not an error! Issues happen in life!
-        // let us keep a count of failures to report
-        // However, this code doesn't count failures!
-        // Add a test below to catch this bug. Alter the stub above, if needed.
-        FailureCount();
+    int i = 0, j = 0;
+    for(i = 0; i < 5; i++) {
+        for(j = 0; j < 5; j++) {
+        PairNumber= i * 5 + j;
+        Print_Colour(PairNumber,majorColor[i],minorColor[j]);
+        }
     }
+    return i * j;
 }
+
+void Print_Colour(int PairNumber,const char* majorColor,const char* minorColor)
+{
+    printf("%d | %s | %s\n",PairNumber, majorColor[i], minorColor[i]);
+} 
 
 int main() {
-    float (*Celsius_cal)(float)=FarenheitToCelsius;
-    int (*networkAlert_call)(float)=networkAlertStub;
-    alertInCelcius(400.5,Celsius_cal,networkAlert_call);
-    alertInCelcius(303.6,Celsius_cal,networkAlert_call);
-    alertInCelcius(572,Celsius_cal,networkAlert_call);
-    assert(alertFailureCount==2);
-    alertInCelcius(500,Celsius_cal,networkAlert_call);
-    alertInCelcius(200,Celsius_cal,networkAlert_call);
-    assert(alertFailureCount==3);
-    printf("%d alerts failed.\n", alertFailureCount);
+    int result = printColorMap();
+    assert(result == 25);
+    assert(PairNumber==25);
     printf("All is well (maybe!)\n");
     return 0;
 }
