@@ -17,7 +17,7 @@ int Format_Colour(const char** majorColor,const char** minorColor,void (*Print_C
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
         PairNumber= i * 5 + j + 1;
-        Print_Colour(PairNumber,majorColor[i],minorColor[j]);
+        (*Print_Colour_Test)(PairNumber,majorColor[i],minorColor[j]);
         }
     }
     return i * j;
