@@ -2,7 +2,7 @@
 #include <assert.h>
 
 int FormatColourMap(const char**,const char**);
-void PrintColourMap(int,int,const char** ,const char** )
+void PrintColourMap(int,int,const char** ,const char** );
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
