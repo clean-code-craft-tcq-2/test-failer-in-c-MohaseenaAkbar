@@ -25,7 +25,7 @@ int Format_Colour(const char** majorColor,const char** minorColor)
 
 void Print_Colour(int PairNumber,const char* majorColor,const char* minorColor)
 {
-    printf("%d | %s | %s\n",PairNumber, majorColor[i], minorColor[i]);
+    printf("%d | %s | %s\n",PairNumber, majorColor, minorColor);
 } 
 
 int main() {
