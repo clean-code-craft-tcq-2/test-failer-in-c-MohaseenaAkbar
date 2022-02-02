@@ -3,7 +3,7 @@
 
 int Format_Colour(const char**,const char**);
 void Print_Colour(int,const char* ,const char* );
-int FormatColourStub(const char** majorColor,const char**,void (*P)(int,const char*,const char*))
+int FormatColourStub(const char** majorColor,const char**,void (*P)(int,const char*,const char*));
 int PairNumber;
 
 int printColorMap() {
