@@ -27,22 +27,28 @@ float FarenheitToCelsius(float farenheit)
      return celcius;
 }
 
-void alertInCelcius(float farenheit) {
-    float celcius=FarenheitToCelsius(farenheit);
-    int returnCode = networkAlertStub(celcius);
+void FailureCount()
+{
+    alertFailureCount += 1;
+}
+void alertInCelcius(float farenheit,float (*Celsius_cal)(float),int (*networkAlert_call)(float)) {
+    int celcius=(*Celsius_cal)(farenheit);
+    int returnCode = (*networkAlert_call)(celcius);
     if (returnCode != 200) {
         // non-ok response is not an error! Issues happen in life!
         // let us keep a count of failures to report
         // However, this code doesn't count failures!
         // Add a test below to catch this bug. Alter the stub above, if needed.
-        alertFailureCount += 1;
+        FailureCount();
     }
 }
 
 int main() {
-    alertInCelcius(400.5);
-    alertInCelcius(303.6);
-    alertInCelcius(572);
+    float (*Celsius_cal)(float)=FarenheitToCelsius;
+    int (*networkAlert_call)(float)=networkAlertStub;
+    alertInCelcius(400.5,Celsius_cal,networkAlert_call);
+    alertInCelcius(303.6,Celsius_cal,networkAlert_call);
+    alertInCelcius(572,Celsius_cal,networkAlert_call);
     assert(alertFailureCount==2);
     printf("%d alerts failed.\n", alertFailureCount);
     printf("All is well (maybe!)\n");
