@@ -8,7 +8,7 @@ int PairNumber;
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
-    int ColorMapArray_size = Format_Colour(majorColor,minorColor);
+    int ColorMapArray_size = Format_Colour(*majorColor,*minorColor);
     return ColorMapArray_size;
  }
 int Format_Colour(const char* majorColor,const char* minorColor)
