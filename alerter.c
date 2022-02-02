@@ -2,9 +2,10 @@
 #include <assert.h>
 
 int alertFailureCount = 0;
+void PrintTemp(float celcius);
 
 int networkAlertStub(float celcius) {
-    PrintTemp();
+    PrintTemp(celcius);
     // Return 200 for ok
     // Return 500 for not-ok
     // stub always succeeds and returns 200
@@ -14,7 +15,7 @@ int networkAlertStub(float celcius) {
         return 500;
 }
 
-void PrintTemp()
+void PrintTemp(float celcius)
 {
    printf("ALERT: Temperature is %.1f celcius.\n", celcius);
 }
@@ -27,7 +28,7 @@ float FarenheitToCelsius(float farenheit)
 }
 
 void alertInCelcius(float farenheit) {
-    float celcius=FarenheitToCelsius;
+    float celcius=FarenheitToCelsius(farenheit);
     int returnCode = networkAlertStub(celcius);
     if (returnCode != 200) {
         // non-ok response is not an error! Issues happen in life!
