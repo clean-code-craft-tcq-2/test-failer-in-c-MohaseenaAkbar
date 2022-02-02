@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <assert.h>
 
-int FormatColourMap(const char*,const char*);
+int FormatColourMap(const char**,const char**);
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
     int ColorMapArray_size = FormatColourMap(majorColor,minorColor);
     return ColorMapArray_size;
  }
-int FormatColourMap(const char* majorColor,const char* minorColor)
+int FormatColourMap(const char** majorColor,const char** minorColor)
 {
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
