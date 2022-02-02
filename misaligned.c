@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <assert.h>
 
-int Format_Colour(const char**,const char**);
-void Print_Colour(int,const char** ,const char** );
+int Format_Colour(const char*,const char*);
+void Print_Colour(int,const char* ,const char* );
 int PairNumber;
 
 int printColorMap() {
@@ -11,7 +11,7 @@ int printColorMap() {
     int ColorMapArray_size = Format_Colour(majorColor,minorColor);
     return ColorMapArray_size;
  }
-int Format_Colour(const char** majorColor,const char** minorColor)
+int Format_Colour(const char* majorColor,const char* minorColor)
 {
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
@@ -23,9 +23,9 @@ int Format_Colour(const char** majorColor,const char** minorColor)
     return i * j;
 }
 
-void Print_Colour(int PairNumber,const char** majorColor,const char** minorColor)
+void Print_Colour(int PairNumber,const char* majorColor,const char* minorColor)
 {
-    printf("%d | %s | %s\n",PairNumber, majorColor[i], minorColor[i]);
+    printf("%d | %s | %s\n",PairNumber, majorColor, minorColor);
 } 
 
 int main() {
